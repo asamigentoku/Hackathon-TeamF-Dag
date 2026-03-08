@@ -14,3 +14,4 @@
 ## mainに自分のプログラムをマージする
 - git branch main
 - git merge [自分のブランチ名]
+- git push orign main
