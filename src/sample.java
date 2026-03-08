@@ -30,8 +30,8 @@ class sample {
         while (true) {
 
             System.out.println("===== 履修管理メニュー =====");   //main menu
-            System.out.println("1: 授業追加");
-            System.out.println("2: 授業一覧");
+            System.out.println("1: 授業追加");         
+            System.out.println("2: 授業一覧");         //course list
             System.out.println("3: 検索");
             System.out.println("4: 終了");
 
@@ -44,15 +44,32 @@ class sample {
 
             } else if (choice == 2) {
 
-                System.out.println("********授業一覧********）");
+                System.out.println("********授業一覧********");
                 for (Course c : courses){
                     System.out.println("授業名: " + c.name + "/ 単位: " + c.credit);
                 }
 
             } else if (choice == 3) {
-                System.out.println("検索機能（まだ未実装）");
+                System.out.print("検索する授業名を入力してください: ");
+                scanner.nextLine(); 
+                String keyword = scanner.next();
 
-            } else if (choice == 4) {
+                boolean found = false;
+
+                for (Course c : courses) {
+                    if (c.name.equals(keyword)) {
+                        System.out.println("見つかりました");
+                        System.out.println("授業名: " + c.name + " / 単位: " + c.credit);
+                        found = true;
+                    }
+                }           
+
+                if (!found) {
+                    System.out.println("その授業は見つかりませんでした");
+                    }
+
+            }
+             else if (choice == 4) {
                 System.out.println("プログラムを終了します");
                 break;
 
