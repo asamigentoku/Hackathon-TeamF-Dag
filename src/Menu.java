@@ -30,14 +30,27 @@ public class Menu {
             if(choice == 1){
 
                 System.out.println("********授業一覧********");
+                System.out.printf("%-3s %-20s %-3s %-4s %-4s %-4s\n",
+                            "ID", "授業名", "曜", "時限", "単位", "区分");
+                System.out.println("----------------------------------------");
 
                 for(Model m : ds.subjects){
-                    System.out.println(
-                        m.id + " " +
-                        m.name + " " +
-                        m.day + " " +
-                        m.period + "限 " +
-                        m.credit + "単位"
+
+                    String type;
+
+                    if(m.required){
+                        type="必修";
+                    }
+                else{
+                    type = "選択";
+                }
+                    System.out.printf("%-3d %-20s %-3s %-4d %-4d %-4s\n",
+                        m.id,
+                        m.name,
+                        m.day,
+                        m.period,
+                        m.credit,
+                        type
                     );
                 }
 
