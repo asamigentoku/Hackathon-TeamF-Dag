@@ -16,7 +16,16 @@ public class Menu {
             System.out.println("3: 終了");
             System.out.print("番号を入力してください: ");
 
-            int choice = scanner.nextInt();
+            int choice;
+
+            if(scanner.hasNextInt()){
+                  choice = scanner.nextInt();
+                    } else {
+                    System.out.println("番号を入力してください");
+                    scanner.next();
+                    continue;
+                    }
+             
 
             if(choice == 1){
 
