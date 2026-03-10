@@ -62,12 +62,12 @@ public class Datastub {
 
         for(int i = 1; i <=500; i++){
 
-            String name = names[rand.nextInt(names.length)] + i;
+            String name = names[rand.nextInt(names.length)];
             String day = days[rand.nextInt(days.length)];
 
             int period = rand.nextInt(6) + 1;   //1〜6限
             int length = rand.nextInt(2) + 1;   //1〜2コマ
-            int credit = length;               //単位
+            int credit = rand.nextInt(2) + 1;               //単位
             boolean required = rand.nextInt(5) == 0; //20%必修
             subjects.add(new Model(i, name, day, period, length, credit, required));
         }
