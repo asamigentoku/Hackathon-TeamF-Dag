@@ -6,7 +6,8 @@ public class Menu {
 
         Scanner scanner = new Scanner(System.in);
 
-        Datastub ds = new Datastub(); // 仮データ
+        //Datastub ds = new Datastub(); // 仮データ
+        Data ds = new Data(); // ファイルからのデータ
 
         while(true){
 

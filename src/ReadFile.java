@@ -1,14 +1,15 @@
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
 public class ReadFile {
-
-    public List<Model> read(String filePath) {
-        List<Model> list = new ArrayList<>();
-
+    public ArrayList<Model> read(String filePath) {
+        ArrayList<Model> list = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
 
             while ((line = br.readLine()) != null) {
                 String[] data = line.split(",");
-
                 int id = Integer.parseInt(data[0]);
                 String name = data[1];
                 String day = data[2];
@@ -30,4 +31,4 @@ public class ReadFile {
 }
 
     
-}
+

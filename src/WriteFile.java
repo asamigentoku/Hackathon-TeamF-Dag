@@ -1,3 +1,7 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.util.List;
+
 public class WriteFile {
 
     public void write(String filePath, List<Model> list) {
