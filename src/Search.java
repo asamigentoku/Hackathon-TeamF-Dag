@@ -30,6 +30,18 @@ public class Search {
         }
         return result;
     }
+    //曜日と時限で授業を検索
+    ArrayList<Model> FilterDayPeriod(ArrayList<Model> datas, String day, int period){
+        ArrayList<Model> result = new ArrayList<>();
+
+        for(var e : datas){
+            if(e.day.equals(day) && e.period == period){
+                result.add(e);
+        }
+    }
+
+        return result;
+    }
     //特定の曜日の授業の評価
     int score(ArrayList<Model> plans){
         int credit=0;
