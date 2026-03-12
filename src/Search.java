@@ -121,8 +121,17 @@ public class Search {
     }
 
 
-    ArrayList<Model> Makeplans(ArrayList<Model> datas) {
+    ArrayList<Model> Makeplans(ArrayList<Model> plan) {
             ArrayList<Model> result = new ArrayList<>();
+            String[] days = {"月","火","水","木","金"};
+            for(var e:days){
+                var dayplan = FileterDay(plan,e);
+                var best = MaximizeDay(dayplan);
+                result.addAll(best);
+            }
+            return result;
+    }
+}
             //アキコマを作らない
             //曜日ごとに作る
             //選択科目をどのくらい取るか
@@ -131,6 +140,3 @@ public class Search {
             //単位上限ギリまでとる
             //とる授業を少なくして単位数を最適化
             //DFSを利用する
-            return result;
-    }
-}
