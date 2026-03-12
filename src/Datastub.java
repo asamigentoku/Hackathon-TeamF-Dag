@@ -1,37 +1,75 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Datastub {
     ArrayList<Model> subjects = new ArrayList<>();
     Datastub(){
-            subjects.add(new Model(1,"プログラミング基礎","月",1,2,true));
-            subjects.add(new Model(2,"プログラミング応用","月",2,2,true));
-            subjects.add(new Model(3,"データ構造","月",3,2,true));
-            subjects.add(new Model(4,"アルゴリズム","月",4,2,true));
-            subjects.add(new Model(5,"離散数学","月",5,2,false));
-            subjects.add(new Model(6,"線形代数","火",1,2,false));
-            subjects.add(new Model(7,"微分積分","火",2,2,false));
-            subjects.add(new Model(8,"確率統計","火",3,2,false));
-            subjects.add(new Model(9,"情報数学","火",4,2,false));
-            subjects.add(new Model(10,"数値計算","火",5,2,false));
-            subjects.add(new Model(11,"コンピュータ基礎","水",1,2,true));
-            subjects.add(new Model(12,"オペレーティングシステム","水",2,2,true));
-            subjects.add(new Model(13,"コンピュータアーキテクチャ","水",3,2,true));
-            subjects.add(new Model(14,"コンパイラ","水",4,2,false));
-            subjects.add(new Model(15,"並列処理","水",5,2,false));
-            subjects.add(new Model(16,"データベース基礎","木",1,2,true));
-            subjects.add(new Model(17,"データベース応用","木",2,2,false));
-            subjects.add(new Model(18,"コンピュータネットワーク","木",3,2,true));
-            subjects.add(new Model(19,"情報セキュリティ","木",4,2,true));
-            subjects.add(new Model(20,"クラウドコンピューティング","木",5,2,false));
-            subjects.add(new Model(21,"人工知能","金",1,2,false));
-            subjects.add(new Model(22,"機械学習","金",2,2,false));
-            subjects.add(new Model(23,"深層学習","金",3,2,false));
-            subjects.add(new Model(24,"画像処理","金",4,2,false));
-            subjects.add(new Model(25,"自然言語処理","金",5,2,false));
-            subjects.add(new Model(26,"ソフトウェア工学","月",6,2,true));
-            subjects.add(new Model(27,"プロジェクト演習","火",6,2,true));
-            subjects.add(new Model(28,"ヒューマンインタフェース","水",6,2,false));
-            subjects.add(new Model(29,"情報倫理","木",6,2,true));
-            subjects.add(new Model(30,"卒業研究","金",6,4,true));
+           String[] names = {
+
+                // 情報系
+                "プログラミング基礎","プログラミング応用","アルゴリズム","データ構造",
+                "オペレーティングシステム","コンピュータネットワーク","データベース",
+                "データベース応用","コンピュータアーキテクチャ","コンパイラ",
+                "並列処理","分散システム","クラウドコンピューティング",
+                "ソフトウェア工学","ソフトウェア設計","テスト工学",
+                "人工知能","機械学習","深層学習","画像処理",
+                "自然言語処理","音声処理","ロボティクス",
+                "ヒューマンインタフェース","情報検索","データマイニング",
+                "ビッグデータ解析","情報セキュリティ","暗号理論",
+
+                // 数学
+                "線形代数","微分積分","確率統計","離散数学",
+                "数値計算","最適化理論","グラフ理論","数理論理",
+                "ゲーム理論","応用数学",
+
+                // 理系
+                "物理学","電磁気学","量子力学","熱力学",
+                "電子回路","デジタル回路","制御工学","信号処理",
+                "材料工学","計測工学",
+
+                // 文系
+                "心理学","哲学","社会学","経済学",
+                "ミクロ経済学","マクロ経済学","経営学",
+                "マーケティング","会計学","法学",
+                "憲法","民法","政治学","国際関係論",
+                "文化人類学","教育学","倫理学","メディア論",
+
+                // 語学
+                "英語Ⅰ","英語Ⅱ","英語Ⅲ","英語Ⅳ",
+                "中国語Ⅰ","中国語Ⅱ",
+                "ドイツ語Ⅰ","ドイツ語Ⅱ",
+                "フランス語Ⅰ","フランス語Ⅱ",
+                "スペイン語","韓国語",
+
+                // 教養
+                "歴史学","日本史","世界史",
+                "地理学","環境科学","宇宙科学",
+                "科学技術史","情報倫理","キャリアデザイン",
+                "プレゼンテーション","アカデミックライティング",
+
+                // 実習
+                "プログラミング演習","AI演習","データ分析演習",
+                "ネットワーク演習","データベース演習",
+                "ソフトウェア開発演習","プロジェクト演習",
+
+                // 体育
+                "体育","スポーツ科学","健康科学","トレーニング理論"
+            };
+
+        String[] days = {"月","火","水","木","金"};
+
+        Random rand = new Random();
+
+        for(int i = 1; i <=500; i++){
+
+            String name = names[rand.nextInt(names.length)];
+            String day = days[rand.nextInt(days.length)];
+
+            int period = rand.nextInt(6) + 1;   //1〜6限
+            int length = rand.nextInt(2) + 1;   //1〜2コマ
+            int credit = rand.nextInt(2) + 1;               //単位
+            boolean required = rand.nextInt(5) == 0; //20%必修
+            subjects.add(new Model(i, name, day, period, length, credit, required));
+        }
     }
 }
