@@ -24,7 +24,7 @@ public class Search {
     ArrayList<Model> FileterDay(ArrayList<Model> datas,String day){
         ArrayList<Model> result = new ArrayList<>();
         for(var e:datas){
-            if(e.day==day){
+            if(e.day.equals(day)){
                 result.add(e);
             }
         }
