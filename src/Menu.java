@@ -121,7 +121,7 @@ public class Menu {
             }else if(choice == 3){
 
                 Search s = new Search();
-                var bestPlan = s.MaximizeDay(data.subjects);
+                var bestPlan = s.Makeplans(data.subjects);
 
                 System.out.println("おすすめ時間割");
 
