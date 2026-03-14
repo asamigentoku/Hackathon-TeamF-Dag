@@ -17,7 +17,8 @@ public class Menu {
             System.out.println("3: 自動時間割作成");
             System.out.println("4: 授業登録");
             System.out.println("5: 登録授業削除");
-            System.out.println("6: 終了");
+            System.out.println("6: 現在の自分の履修状況");
+            System.out.println("7: 終了");
             System.out.print("番号を入力してください: ");
 
             int choice;
@@ -196,6 +197,20 @@ public class Menu {
                 }
 
             }else if(choice == 6){
+                
+                System.out.println("現在登録されている授業:");
+                var totalCredits = 0;
+                var totalRequired = 0;
+                var totalselected = 0;
+                for(Model p : data.Myplans){
+                    totalCredits += p.credit;
+                    totalRequired += p.required ? 1 : 0;
+                    totalselected += p.required ? 0 : 1;
+                }
+                System.out.println("合計単位: " + totalCredits);
+                System.out.println("必修授業数: " + totalRequired);
+                System.out.println("選択授業数: " + totalselected);
+            } else if(choice == 7){
 
                 System.out.println("プログラムを終了します");
                 break;

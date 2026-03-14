@@ -108,7 +108,6 @@ public class Search {
                 //今追加した授業を取り消して元の状態に戻す
                 current.remove(current.size()-1);
             }
-
             //今の授業を追加しない場合
             //次の探索を現在のbestとcurrentの比較
             dfs(index+1,datas,current,bestPlan);
