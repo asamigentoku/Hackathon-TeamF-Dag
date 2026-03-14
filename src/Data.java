@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Data { 
     ArrayList<Model> subjects = new ArrayList<>();
+    ArrayList<Model> Myplans = new ArrayList<>();
     Data(){
         ReadFile rf = new ReadFile();
         //現在のディレクトリを取得
