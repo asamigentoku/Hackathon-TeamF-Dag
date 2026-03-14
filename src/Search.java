@@ -94,20 +94,25 @@ public class Search {
             return;
         }
         var newclass=datas.get(index);
-
-        //今の授業を追加する場合
-        if(valid(current,newclass)){
+        if(newclass.required){
             current.add(newclass);
-            //授業をもう一つ追加してそれをベストなものとする
             dfs(index+1,datas,current,bestPlan);
-            //もしここでベストなものがあった、ベストが更新されている
-            //今追加した授業を取り消して元の状態に戻す
-            current.remove(current.size()-1);
-        }
+            current.remove(current.size()-1);   
+        } else {
+            //今の授業を追加する場合
+            if(valid(current,newclass)){
+                current.add(newclass);
+                //授業をもう一つ追加してそれをベストなものとする
+                dfs(index+1,datas,current,bestPlan);
+                //もしここでベストなものがあった、ベストが更新されている
+                //今追加した授業を取り消して元の状態に戻す
+                current.remove(current.size()-1);
+            }
 
-        //今の授業を追加しない場合
-        //次の探索を現在のbestとcurrentの比較
-        dfs(index+1,datas,current,bestPlan);
+            //今の授業を追加しない場合
+            //次の探索を現在のbestとcurrentの比較
+            dfs(index+1,datas,current,bestPlan);
+        }
     }
 
 
@@ -133,10 +138,4 @@ public class Search {
     }
 }
             //アキコマを作らない
-            //曜日ごとに作る
-            //選択科目をどのくらい取るか
-            //必修は必ずできる
             //全休を作りたい
-            //単位上限ギリまでとる
-            //とる授業を少なくして単位数を最適化
-            //DFSを利用する
