@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class Menu {
 
     public static void main(String[] args){
@@ -20,7 +21,6 @@ public class Menu {
             System.out.println("6: 現在の自分の履修状況");
             System.out.println("7: 終了");
             System.out.print("番号を入力してください: ");
-
             int choice;
 
             if(scanner.hasNextInt()){
@@ -197,7 +197,8 @@ public class Menu {
                 }
 
             }else if(choice == 6){
-                
+                Data d = new Data();
+                d.ShowMyplans();       
                 System.out.println("現在登録されている授業:");
                 var totalCredits = 0;
                 var totalRequired = 0;
@@ -211,7 +212,6 @@ public class Menu {
                 System.out.println("必修授業数: " + totalRequired);
                 System.out.println("選択授業数: " + totalselected);
             } else if(choice == 7){
-
                 System.out.println("プログラムを終了します");
                 break;
             }
